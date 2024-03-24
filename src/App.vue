@@ -1,32 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>根组件
+      - {{ $store.state.title }}
+      - {{ $store.state.count }}
+
+    </h1>
+    <input type="text">
+    <Son1></Son1>
+    <hr>
+    <Son2></Son2>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Son1 from './components/Son1.vue'
+import Son2 from './components/Son2.vue'
 
 export default {
-  name: 'App',
-  created () {
-    console.log(this.$store)
-  },
+  name: 'app',
+  data: function () {
+    return {
 
+    }
+  },
+  created () {
+    console.log(this.$store.state)
+    console.log(this.$store.state.title)
+    console.log(this.$store.state.count)
+  },
   components: {
-    HelloWorld
+    Son1,
+    Son2
   }
 }
 </script>
 
-<style lang="less">
+<style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 600px;
+  margin: 20px auto;
+  border: 3px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
 }
 </style>

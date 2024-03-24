@@ -3,6 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store()
+const store = new Vuex.Store({
+  state: {
+    title: '大标题',
+    count: 100
+  }
+})
 
 export default store
