@@ -10,6 +10,10 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  created () {
+    console.log(this.$store)
+  },
+
   components: {
     HelloWorld
   }
