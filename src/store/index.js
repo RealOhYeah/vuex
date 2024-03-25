@@ -8,6 +8,19 @@ const store = new Vuex.Store({
   state: {
     title: '大标题',
     count: 100
+  },
+  // 此处定义mutations
+  mutations: {
+    addCount (state) {
+      state.count += 1
+    },
+    addFive (state) {
+      state.count += 5
+    },
+    changeTitle (state) {
+
+    }
+
   }
 })
 

@@ -27,10 +27,6 @@ export default {
     ...mapState(['count', 'title'])
   },
   created () {
-    console.log(6666666666666)
-    console.log(this.$store.state)
-    console.log(this.title)
-    console.log(this.count)
   },
   components: {
     Son1,
