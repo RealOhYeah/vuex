@@ -25,9 +25,14 @@ const store = new Vuex.Store({
       state.title = newTitle
     },
 
-    subtractionCount (state, obj) {
+    subCount (state, obj) {
       state.count -= obj.count
     },
+    // 这里mapMutations展开
+    subCountTwo (state, n) {
+      state.count -= n
+    },
+
     changeCount (state, newCount) {
       state.count = newCount
     }

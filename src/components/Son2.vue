@@ -9,7 +9,7 @@
   </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Son2Com',
@@ -17,11 +17,22 @@ export default {
     ...mapState(['count'])
   },
   methods: {
+    ...mapMutations(['subCount', 'subCountTwo']),
     subtractionCount (n) {
-      this.$store.commit('subtractionCount', {
+      // 这里是传统方法调用
+      // this.$store.commit('subCount', {
+      // count: n,
+      //  msg: '减法'
+      // })
+
+      // 这里mapMutations展开(传多个参数)
+      this.subCount({
         count: n,
         msg: '减法'
       })
+
+      // 这里mapMutations展开(传单个参数)
+      // this.subCountTwo(n)
     }
   }
 
