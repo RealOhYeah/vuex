@@ -3,24 +3,32 @@
       <h2>Son1 子组件</h2>
       从vuex中获取的值: <label></label>
       <br>
-      <button @click="handleAdd">值 + 1</button>
-      <button @click="handleAddFive">值 + 5</button>
+      <button @click="handleAdd(1)">值 + 1</button>
+      <button @click="handleAdd(5)">值 + 5</button>
+      <button @click="changeFu('小标题')">小标题</button>
     </div>
   </template>
 
 <script>
 export default {
   name: 'Son1Com',
+
   methods: {
-    handleAdd () {
+    handleAdd (n) {
       // this.$store.state.count++
       // console.log(this.$store.state.count)
 
-      this.$store.commit('addCount')
+      // 这里传单个参数
+      // this.$store.commit('addCount', n)
+
+      // 这里传多个参数
+      this.$store.commit('addCount', {
+        count: n,
+        msg: '哈哈'
+      })
     },
-    handleAddFive () {
-      console.log(this.$store.state.count)
-      this.$store.commit('addFive')
+    changeFu (newTitle) {
+      this.$store.commit('changeTitle', newTitle)
     }
 
   }

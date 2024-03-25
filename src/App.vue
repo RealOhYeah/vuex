@@ -5,7 +5,7 @@
       - {{ count }}
 
     </h1>
-    <input type="text">
+    <input :value="count" @input="handleInput" type="text">
     <Son1></Son1>
     <hr>
     <Son2></Son2>
@@ -18,9 +18,18 @@ import Son2 from './components/Son2.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'app',
+
   data: function () {
     return {
 
+    }
+  },
+  methods: {
+    handleInput (e) {
+      console.log(6666)
+      const num = +e.target.value
+
+      this.$store.commit('changeCount', num)
     }
   },
   computed: {
