@@ -6,6 +6,8 @@
       <button @click="handleAdd(1)">值 + 1</button>
       <button @click="handleAdd(5)">值 + 5</button>
       <button @click="changeFu('小标题')">小标题</button>
+      <button @click="handleChange">一秒后修改为666</button>
+
     </div>
   </template>
 
@@ -14,6 +16,13 @@ export default {
   name: 'Son1Com',
 
   methods: {
+
+    handleChange () {
+      // 调用action
+      // this.$store.dispatch('action名字', 额外参数)
+      this.$store.dispatch('changeCountAction', 666)
+    },
+
     handleAdd (n) {
       // this.$store.state.count++
       // console.log(this.$store.state.count)
