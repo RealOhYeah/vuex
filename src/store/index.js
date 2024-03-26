@@ -7,7 +7,8 @@ const store = new Vuex.Store({
   strict: true,
   state: {
     title: '仓库大标题',
-    count: 100
+    count: 100,
+    list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
   // 此处定义mutations
   mutations: {
@@ -49,6 +50,11 @@ const store = new Vuex.Store({
       setTimeout(() => {
         context.commit('changeCount', num)
       }, 1000)
+    }
+  },
+  getters: {
+    filters (state) {
+      return state.list.filter(item => item > 5)
     }
   }
 })

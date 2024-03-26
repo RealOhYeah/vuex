@@ -5,19 +5,25 @@
       <br />
       <button @click="subtractionCount(1)">值 - 1</button>
       <button @click="subtractionCount(5)">值 - 5</button>
+      <button @click="changeCountAction(888)">一秒后修改为888</button>
+      <hr>
+      <div>{{ filters }}</div>
+
     </div>
   </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'Son2Com',
   computed: {
-    ...mapState(['count'])
+    ...mapState(['count']),
+    ...mapGetters(['filters'])
   },
   methods: {
     ...mapMutations(['subCount', 'subCountTwo']),
+    ...mapActions(['changeCountAction']),
     subtractionCount (n) {
       // 这里是传统方法调用
       // this.$store.commit('subCount', {

@@ -7,6 +7,9 @@
       <button @click="handleAdd(5)">值 + 5</button>
       <button @click="changeFu('小标题')">小标题</button>
       <button @click="handleChange">一秒后修改为666</button>
+      <hr>
+      <div>{{ $store.state.list }}</div>
+      <div>{{ $store.getters.filters }}</div>
 
     </div>
   </template>
