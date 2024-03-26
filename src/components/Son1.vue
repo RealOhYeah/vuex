@@ -11,6 +11,20 @@
       <div>{{ $store.state.list }}</div>
       <div>{{ $store.getters.filters }}</div>
 
+      <hr>
+      <!-- 测试访问模块中的state - 原生 -->
+      <div>{{ $store.state.user.userInfo.name }}</div>
+      <!-- 此处分模块 -->
+      <button @click="updateUser">更新个人信息</button>
+      <button @click="updateUser2">一秒后更新信息</button>
+
+      <div>{{ $store.state.setting.theme }}</div>
+      <!-- 此处分模块 -->
+      <button @click="updateTheme">更新主题色</button>
+
+      <hr>
+      <div>{{ $store.getters['user/UpperCaseName'] }}</div>
+
     </div>
   </template>
 
@@ -18,8 +32,27 @@
 export default {
   name: 'Son1Com',
 
+  created () {
+    console.log(this.$store.getters)
+  },
+
   methods: {
 
+    updateUser2 () {
+      this.$store.dispatch('user/setUserSecond', {
+        name: 'xiaohong',
+        age: 28
+      })
+    },
+    updateUser () {
+      this.$store.commit('user/setUser', {
+        name: 'xiaowang',
+        age: 25
+      })
+    },
+    updateTheme () {
+      this.$store.commit('setting/setTheme', 'pink')
+    },
     handleChange () {
       // 调用action
       // this.$store.dispatch('action名字', 额外参数)
